@@ -7,7 +7,9 @@ echo '------------------------'
 read -p "MySQL Password: " mysqlPassword
 read -p "Retype password: " mysqlPasswordRetype
 
-yum install -y httpd php mysql mysql-server
+wget -q -O - http://www.atomicorp.com/installers/atomic |sh
+
+yum install -y httpd php php-common php-mysql mysql mysql-server php-eaccelerator.x86_64 php-ioncube-loader
 
 chkconfig mysql-server on
 chkconfig httpd on
